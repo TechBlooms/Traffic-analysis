@@ -29,7 +29,7 @@ Openvino was used in this project which helped in optimization of the computer v
 <img src="https://user-images.githubusercontent.com/118420309/226315524-f3a075ce-8102-42d6-9199-0189c9589735.jpg" width=500 height =300 > 
 </p>
 
-Implementing OpenVINO  [link](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html)
+Implementing OpenVINO [link](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html)
 
 Steps
 
@@ -114,8 +114,8 @@ Final view of the Traffic shown in the web dashboard.
 
 # 07 Overview of the project
  
- Video [Link](https://youtu.be/-uzCXNjXNBQ)
+ Video [**Link**](https://youtu.be/-uzCXNjXNBQ)
  
- Drive [Link](https://drive.google.com/drive/folders/1wCd9z_YpQytijO36T0_t2LJWqR4Lclt-?usp=sharing)
+ Drive [**Link**](https://drive.google.com/drive/folders/1wCd9z_YpQytijO36T0_t2LJWqR4Lclt-?usp=sharing)
 
 
