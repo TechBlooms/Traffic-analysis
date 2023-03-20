@@ -7,7 +7,7 @@
 
 # GitHub Pages
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+_AI based decision support system for traffic control._
 
 <!--
   <<< Author notes: Start of the course >>>
