@@ -93,10 +93,13 @@ Real time dataset
 
 Prototype live detection and count
 
-![l1](https://user-images.githubusercontent.com/118420309/226320026-91f66e9a-f828-442f-a5d8-aef66da02688.png)
-![l2](https://user-images.githubusercontent.com/118420309/226320047-6a43f070-fe95-4461-96c6-712afff8cae0.png)
-![l4](https://user-images.githubusercontent.com/118420309/226320057-6d084d43-5fc2-436e-b347-c194012bcf03.png)
-![l3](https://user-images.githubusercontent.com/118420309/226320058-087bfad9-1748-47d5-9db3-e913e63e28ec.png)
+ <img src="(https://user-images.githubusercontent.com/118420309/226320026-91f66e9a-f828-442f-a5d8-aef66da02688.png)" width=500 height =300> 
+
+ <img src="(https://user-images.githubusercontent.com/118420309/226320047-6a43f070-fe95-4461-96c6-712afff8cae0.png)" width=500 height =300> 
+ <img src="(https://user-images.githubusercontent.com/118420309/226320057-6d084d43-5fc2-436e-b347-c194012bcf03.png)" width=500 height =300> 
+
+ <img src="(https://user-images.githubusercontent.com/118420309/226320058-087bfad9-1748-47d5-9db3-e913e63e28ec.png)" width=500 height =300> 
+ <img src="(https://user-images.githubusercontent.com/118420309/226320057-6d084d43-5fc2-436e-b347-c194012bcf03.png)" width=500 height =300>
 
 
 
