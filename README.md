@@ -46,6 +46,8 @@ python -m flask run
 ```
 ![OPENVINO 2](https://user-images.githubusercontent.com/118420309/226316559-6520e8c4-8022-4e85-a035-64980afd5255.png)
 
+•	CTRL + click on the link to open the web dashboard.
+
  
 # 04 Test model
 
