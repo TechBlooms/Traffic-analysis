@@ -25,10 +25,10 @@ For database - Firebase (No-SQL) in cloud and Sqlite in edge was used.
 # 04 Deployment of OneAPI
 OneAPI is used enable the use of one platform for a range of different hardware, hence it eliminated the need for different languages, tools, and libraries when to code for CPUs and GPUs. 
 Openvino was used in this project which helped in optimization of the computer vision packages that were used including OpenCV and other DL packages required for it.
-
+<p align="center">
 <img src="https://user-images.githubusercontent.com/118420309/226315524-f3a075ce-8102-42d6-9199-0189c9589735.jpg" width=500 height =300 > 
+</p>
 
-![tool-thumbnail-beta-oneapi-logo]()
 Implementing OpenVINO  [link](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html)
 
 Steps
