@@ -59,26 +59,22 @@ Real time dataset
 ![3OP](https://user-images.githubusercontent.com/118420309/226319840-7a083950-93e6-4ad7-9586-761b0ec3b028.png)
 ![4OP](https://user-images.githubusercontent.com/118420309/226319846-e29b74dd-ebb1-4399-b39c-bb8f9cc39207.png)
 
+Prototype live detection and count
+
+![l1](https://user-images.githubusercontent.com/118420309/226320026-91f66e9a-f828-442f-a5d8-aef66da02688.png)
+![l2](https://user-images.githubusercontent.com/118420309/226320047-6a43f070-fe95-4461-96c6-712afff8cae0.png)
+![l4](https://user-images.githubusercontent.com/118420309/226320057-6d084d43-5fc2-436e-b347-c194012bcf03.png)
+![l3](https://user-images.githubusercontent.com/118420309/226320058-087bfad9-1748-47d5-9db3-e913e63e28ec.png)
 
 
-# 05 Bonus — Streamlit App
 
-Wouldn’t it be great if we could use this app in the web. We could just upload image of a crop and it gives the areas where weed is present. We can do exactly that using streamlit.
+# 06 Web dashboard
+Final view of the Traffic shown in the web dashboard.
 
-![](https://miro.medium.com/max/1200/1*bkMoiV4ErVFkZ355Ay9CfA.gif)
 
-For a more detailed explanation of coding in streamlit, take a look at this  [article](https://pub.towardsai.net/deep-learning-a692669f6f42), and go to the section  _Hosting As a Streamlit Application (Locally and then in the cloud)._ The code follows a similar pattern and can be found in  [github](https://github.com/ashhadulislam/medium_weedVcrop-main)  and the running app can be found  [here](https://ashhadulislam-medium-weedvcrop-main-main-ppo37r.streamlit.app/).
+![wb1](https://user-images.githubusercontent.com/118420309/226320383-9fbf0c35-a422-4ac8-8ea6-2cd150df685f.png)
+![wb2](https://user-images.githubusercontent.com/118420309/226320397-def3e802-d4d3-43e6-b10a-4e78d0845f7b.png)
 
-First we have shown how a single image can be processed by different yolo models and the corresponding results as shown in the gif below.
 
-![](https://miro.medium.com/max/1200/1*YJFfygi_4JR5fDdKNIhoEQ.gif)
 
-Single image processed by different yolov8 models
 
-However, you might need to upload a set of images and apply the models on them. In that case, it would be tedious to drag and drop every image one by one. Rather, we have another page in the same application where you can drag and drop a zip file containing multiple images.
-
-![](https://miro.medium.com/max/1200/1*0BDHmo-iISYYQWNHTa9qfg.gif)
-
-Processing zipped files
-
-You can even choose the from a list of models (yolov8 — nano, small, medium and large). You will get a zipped file containing folders corresponding to each model with a set of result in each.
