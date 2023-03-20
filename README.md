@@ -49,28 +49,17 @@ python -m flask run
 •	CTRL + click on the link to open the web dashboard.
 
  
-# 04 Test model
+# 05 Output - Count taken
 
-Once the model is trained satisfactorily, we want to test its performance. We create a folder called test_data and put some images in it for testing.
+Real time dataset
 
-![](https://miro.medium.com/max/972/1*6X_aaj3qM7OiywCW1gPMJg.png)
 
-Files and folders for testing
+![2 OP](https://user-images.githubusercontent.com/118420309/226319816-9d528b24-e86a-43ff-9088-4cd7869eee01.png)
+![1 op](https://user-images.githubusercontent.com/118420309/226319835-aa773d40-f714-4004-8d85-157681f648fe.png)
+![3OP](https://user-images.githubusercontent.com/118420309/226319840-7a083950-93e6-4ad7-9586-761b0ec3b028.png)
+![4OP](https://user-images.githubusercontent.com/118420309/226319846-e29b74dd-ebb1-4399-b39c-bb8f9cc39207.png)
 
-Notice how we have created a new file called test_yolov5.sh which will contain the commands to run the trained yolov5 model on the images present in the test_data folder. We transfer a couple of images into the test_data folder. Following is the content of the test_yolov5.sh file:
-```
-source /opt/intel/inteloneapi/setvars.sh  
-source activate pytorch  
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/glob/development-tools/versions/oneapi/2023.0/oneapi/intelpython/latest/envs/pytorch/lib/  
-python yolov5/detect.py --source test_data/ --weights yolov5/runs/train/TrainModel/weights/best.pt --conf 0.25 --name TestModel
-```
-Note that this also has to be submitted as a job. The command for the same is as follows:
-```
-qsub -l nodes=1:gpu:ppn=2 -d . test_yolov5.sh
-```
-The output of the test will be stored in yolov5/runs/detect in a folder called TestModel.
 
-![](https://miro.medium.com/max/500/1*fzHUMBcoUPt5o7rnmhJLdw.png)
 
 # 05 Bonus — Streamlit App
 
