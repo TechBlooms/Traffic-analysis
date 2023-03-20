@@ -2,7 +2,7 @@
 
  **Edge AI based Decision support system for Traffic Control** is an helpful tool for traffic cops to analyze the traffic using ML and IoT.
 
-![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*HF_Bjk4gMPohESQggXaW7g.jpeg)
+
 
 
 # 01 Motivation
