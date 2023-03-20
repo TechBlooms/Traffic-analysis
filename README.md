@@ -24,8 +24,9 @@ For database - Firebase (No-SQL) in cloud and Sqlite in edge was used.
 OneAPI is used enable the use of one platform for a range of different hardware, hence it eliminated the need for different languages, tools, and libraries when to code for CPUs and GPUs. 
 Openvino was used in this project which helped in optimization of the computer vision packages that were used including OpenCV and other DL packages required for it.
 
+![tool-thumbnail-beta-oneapi-logo](https://user-images.githubusercontent.com/118420309/226315524-f3a075ce-8102-42d6-9199-0189c9589735.jpg)
 
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.intel.com%2Fcontent%2Fwww%2Fus%2Fen%2Fdeveloper%2Ftools%2Foneapi%2Foverview.html&psig=AOvVaw0oW6n2wOQ7LrLJqmtcMXtM&ust=1679394830753000&source=images&cd=vfe&ved=2ahUKEwjH_O6zp-r9AhWWX2wGHcaUD1MQjRx6BAgAEAo)
+
 
 Different sizes of YOLOv5 models
 
