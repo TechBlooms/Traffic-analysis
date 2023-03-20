@@ -5,9 +5,9 @@
   Add your open source license, GitHub uses Creative Commons Attribution 4.0 International.
 -->
 
-# GitHub Pages
+# AI based descision support system for traffic control
 
-_AI based decision support system for traffic control._
+_._
 
 <!--
   <<< Author notes: Start of the course >>>
