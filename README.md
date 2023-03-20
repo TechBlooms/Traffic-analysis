@@ -86,8 +86,8 @@ Real time dataset
 
 <img src="https://user-images.githubusercontent.com/118420309/226319816-9d528b24-e86a-43ff-9088-4cd7869eee01.png" width=500 height =300> <img src="https://user-images.githubusercontent.com/118420309/226319835-aa773d40-f714-4004-8d85-157681f648fe.png" width=500 height =300>
 
-<img src="https://user-images.githubusercontent.com/118420309/226319840-7a083950-93e6-4ad7-9586-761b0ec3b028.png" width=600 height =300>
-<img src="https://user-images.githubusercontent.com/118420309/226319846-e29b74dd-ebb1-4399-b39c-bb8f9cc39207.png" width=600 height =300>
+<img src="https://user-images.githubusercontent.com/118420309/226319840-7a083950-93e6-4ad7-9586-761b0ec3b028.png" width=500 height =300> <img src="https://user-images.githubusercontent.com/118420309/226319846-e29b74dd-ebb1-4399-b39c-bb8f9cc39207.png" width=500 height =300>
+
 
 
 
