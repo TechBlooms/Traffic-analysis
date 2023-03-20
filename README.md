@@ -25,6 +25,32 @@ OneAPI is used enable the use of one platform for a range of different hardware,
 Openvino was used in this project which helped in optimization of the computer vision packages that were used including OpenCV and other DL packages required for it.
 
 ![tool-thumbnail-beta-oneapi-logo](https://user-images.githubusercontent.com/118420309/226315524-f3a075ce-8102-42d6-9199-0189c9589735.jpg)
+Implementing OpenVINO 
+Steps
+
+Step 1: Create virtual environment
+``` bash
+python -m venv openvino_env
+```
+Step 2: Activate virtual environment
+``` bash
+openvino_env\Scripts\activate
+```
+Step 3: Upgrade pip to latest version
+``` bash
+python -m pip install --upgrade pip
+```
+Step 4: Download and install the package
+``` bash
+pip install openvino-dev==2022.3.0
+```
+
+
+
+
+
+
+
 
 How to run,
 •	Create a virtual environment and activate it
