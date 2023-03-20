@@ -108,6 +108,10 @@ Final view of the Traffic shown in the web dashboard.
 ![wb1](https://user-images.githubusercontent.com/118420309/226320383-9fbf0c35-a422-4ac8-8ea6-2cd150df685f.png)
 ![wb2](https://user-images.githubusercontent.com/118420309/226320397-def3e802-d4d3-43e6-b10a-4e78d0845f7b.png)
 
-
+# 07 Overview of the project
+ 
+ Video [Link](https://youtu.be/-uzCXNjXNBQ)
+ 
+ Drive [Link](https://drive.google.com/drive/folders/1wCd9z_YpQytijO36T0_t2LJWqR4Lclt-?usp=sharing)
 
 
