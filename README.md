@@ -7,7 +7,7 @@
 
 # AI based descision support system for traffic control
 
-_._
+_ _
 
 <!--
   <<< Author notes: Start of the course >>>
