@@ -100,6 +100,10 @@ Prototype live detection and count
 
  <img src="(https://user-images.githubusercontent.com/118420309/226320058-087bfad9-1748-47d5-9db3-e913e63e28ec.png)" width=500 height =300> 
  <img src="(https://user-images.githubusercontent.com/118420309/226320057-6d084d43-5fc2-436e-b347-c194012bcf03.png)" width=500 height =300>
+![l3](https://user-images.githubusercontent.com/118420309/226427078-05891c33-41df-45ed-b3dc-e785d750ea46.png)
+![l1](https://user-images.githubusercontent.com/118420309/226427100-6908cea0-8cef-4c67-a8de-effc529b0740.png)
+![l2](https://user-images.githubusercontent.com/118420309/226427111-d80c6220-3f5e-4bac-aa80-0618113fb422.png)
+![l4](https://user-images.githubusercontent.com/118420309/226427129-fb7f6c7d-b752-441e-8196-f73ac25b3789.png)
 
 
 
