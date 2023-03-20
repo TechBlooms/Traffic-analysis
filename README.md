@@ -26,58 +26,22 @@ Openvino was used in this project which helped in optimization of the computer v
 
 ![tool-thumbnail-beta-oneapi-logo](https://user-images.githubusercontent.com/118420309/226315524-f3a075ce-8102-42d6-9199-0189c9589735.jpg)
 
+How to run,
+•	Create a virtual environment and activate it
+•	Download the packages using the command,
+pip install -r requirements.txt
+•	In a terminal, run mainProgram.py
+python mainProgram.py
 
+[Uploading OPENVINO_ENV.png…]()
+•	In another terminal, run the frontend using the command,
 
-Different sizes of YOLOv5 models
-
-Now we can submit the training job. However you might face an error:
+``` bash
+python -m flask run
 ```
-import pandas._libs.window.aggregations as window_aggregations   
-ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version   
-`GLIBCXX_3.4.29' not found 
-```
-This is specific to the intel oneapi platform and can be resolved by adding the following line to the bash file running the training command. Modify the train_yolov5.sh file as follows:
-```
-source /opt/intel/inteloneapi/setvars.sh  
-source activate pytorch  
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/glob/development-tools/versions/oneapi/2023.0/oneapi/intelpython/latest/envs/pytorch/lib/  
-python yolov5/train.py --data dataDiff.yaml --cfg yolov5n.yaml --batch-size 32 --epochs 5 --name TrainModel
-```
-The third line takes care of the library not found error.
+![OPENVINO 2](https://user-images.githubusercontent.com/118420309/226316559-6520e8c4-8022-4e85-a035-64980afd5255.png)
 
-We can now submit the job with the following command.
-```
-qsub -l nodes=1:gpu:ppn=2 -d . train_yolov5.sh 
-```
-
-Once the job is submitted, you can check the status with the below command.
-
-```
-watch -n 1 qstat -n -1
-```
-
-The progress can be seen as below:
-
-![](https://miro.medium.com/max/1400/1*ZKHImLvyvpMxmpr0xcySkQ.png)
-
-You can also find the training files inside the yolov5 folder. Go to yolov5/runs/train/TrainModel folder. You can see the intermediate efficacy of the model as and while it s being trained.
-
-![](https://miro.medium.com/max/1400/1*0hiPTFh6asSVXYelRuZL_g.jpeg)
-
-Model classification on validation images
-
-You will know that your training is complete when qstat doesnt show any train_yolov5.sh any more. Also the yolov5/runs/train/TrainModel will have lot of files with validation results.
-
-For example, below is the result on some validation images.
-
-![](https://miro.medium.com/max/1378/1*ylEQ2Kto3-sS1JU2cC_HoQ.png)
-
-Detecting weed and crop in validation images
-
-![](https://miro.medium.com/max/1400/1*IFYwa2pCk3F1gNE7bVMPFQ.png)
-
-Confusion matrix created after training
-
+ 
 # 04 Test model
 
 Once the model is trained satisfactorily, we want to test its performance. We create a folder called test_data and put some images in it for testing.
