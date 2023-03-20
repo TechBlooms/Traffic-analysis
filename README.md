@@ -36,8 +36,9 @@ pip install -r requirements.txt
 ``` bash
 python mainProgram.py
 ```
+![OPENVINO_ENV](https://user-images.githubusercontent.com/118420309/226317165-1e3ad93a-a734-420c-b921-dfb87077b5d5.png)
 
-[Uploading OPENVINO_ENV.png…]()
+
 •	In another terminal, run the frontend using the command,
 
 ``` bash
