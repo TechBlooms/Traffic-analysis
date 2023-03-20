@@ -1,239 +1,420 @@
-<!--
-  <<< Author notes: Header of the course >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses Creative Commons Attribution 4.0 International.
--->
+# Edge AI based Decision support system for Traffic Control
 
-# AI based descision support system for traffic control
+ **Edge AI based Decision support system for Traffic Control** is an helpful tool for traffic cops to analyze the traffic using ML and IoT.
 
-_ _
+![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*HF_Bjk4gMPohESQggXaW7g.jpeg)
 
-<!--
-  <<< Author notes: Start of the course >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
-  Each step should be wrapped in <details>/<summary>, with an `id` set.
-  The start <details> should have `open` as well.
-  Do not use quotes on the <details> tag attributes.
--->
 
-<details id=0>
-<summary><h2>Welcome</h2></summary>
+# 01 Motivation
+ 
+Knowing that traffic officers won’t have the view of the whole traffic, this project has a web-based dashboard to assist traffic officers in making decisions depending on the volume of traffic only by visualizing the count of vehicles from each lane. This would serve as a hybrid way of traffic support to the cop instead of fully automating traffic control.In this project we have also implemented the algorithm using Intel oneAPI Toolkit.
 
-With GitHub Pages, you can host project blogs, documentation, resumes, portfolios, or any other static content you'd like. Your GitHub repository can easily become its own website. In this course, we'll show you how to set up your own site or blog using GitHub Pages.
+# 02 Setup
+We have used intelOneApi devcloud,
+![](https://miro.medium.com/max/1400/1*bSJl-WLup5TLXI7EIhZ0dA.png)
 
-- **Who is this for**: Beginners, students, project maintainers, small businesses.
-- **What you'll learn**: How to build a GitHub Pages site.
-- **What you'll build**: We'll build a simple GitHub Pages site with a blog. We'll use [Jekyll](https://jekyllrb.com), a static site generator.
-- **Prerequisites**: If you need to learn about branches, commits, and pull requests, take [Introduction to GitHub](https://github.com/skills/introduction-to-github) first.
-- **How long**: This course is five steps long and takes less than one hour to complete.
+Sign in/up to use the powerful intel devcloud
 
-## How to start this course
+## ssh into devcloud
 
-1. Right-click **Start course** and open the link in a new tab.
-   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](https://github.com/skills/github-pages/generate)
-2. In the new tab, follow the prompts to create a new repository.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository—private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   ![Create a new repository](https://user-images.githubusercontent.com/1221423/218594143-e60462b6-9f2a-4fa3-80de-063ac5429aab.png)
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+Once you have an account you need to follow some steps to connect to the oneapi devcloud server machine. Go to this  [link](https://devcloud.intel.com/oneapi/get_started/aiAnalyticsToolkitSamples/)  to and follow the necessary instructions.
 
-</details>
+![](https://miro.medium.com/max/1400/1*fUYXnV1MVM8p-3khG-LCuQ.png)
 
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
+Choose your operating system
 
-<details id=1>
-<summary><h2>Step 1: Enable GitHub Pages</h2></summary>
+You can choose option1: Automated Configuration which gives you a .txt file. You can run this file with the bash command and that will set up the configurations required to connect to devcloud.
 
-_Welcome to GitHub Pages and Jekyll :tada:!_
+![](https://miro.medium.com/max/1400/1*aEZjYRij3ozelD4Wrlmpgw.png)
 
-The first step is to enable GitHub Pages on this [repository](https://docs.github.com/en/get-started/quickstart/github-glossary#repository). When you enable GitHub Pages on a repository, GitHub takes the content that's on the main branch and publishes a website based on its contents.
+Automated Configuration
 
-### :keyboard: Activity: Enable GitHub Pages
+Once the configuration is complete, just type ssh devcloud to connect to the server. You might have to type “yes” for the first time and re connect.
 
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. Under your repository name, click **Settings**.
-1. Click **Pages** in the **Code and automation** section.
-1. Ensure "Deploy from a branch" is selected from the **Source** drop-down menu, and then select `main` from the **Branch** drop-down menu.
-1. Click the **Save** button.
-1. Wait about _one minute_, then refresh this page for the next step.
-   > Turning on GitHub Pages creates a deployment of your repository. GitHub Actions may take up to a minute to respond while waiting for the deployment. Future steps will be about 20 seconds; this step is slower.
-   > **Note**: In the **Pages** of **Settings**, the **Visit site** button will appear at the top. Click the button to see your GitHub Pages site.
+![](https://miro.medium.com/max/616/1*aCkovalBmrAbpJQnAyGyDQ.png)
 
-</details>
+This is what my terminal looks like after connecting to devcloud.
 
-<!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked for empty pull request, changed to the correct theme `minima`.
--->
+![](https://miro.medium.com/max/1400/1*HhGcBqVtChx0sKM_gHdPgg.png)
 
-<details id=2 open>
-<summary><h2>Step 2: Configure your site</h2></summary>
+# 03 Project Setup
+Create a folder called project at the home location with the following command
 
-_You turned on GitHub Pages! :tada:_
+```
+mkdir project  
+cd project
+```
+## Data
+Download the data from  [here](https://s3-ap-southeast-1.amazonaws.com/he-public-data/Weed_Detection5a431d7.zip). It is a collection of images of crops and weeds. Crop is labeleld 0 while weed is labelled 1.
 
-We'll work in a branch, `my-pages`, that I created for you to get this site looking great. :sparkle:
+Since you are on the ssh terminal, you can run a wget command to download the data. Make sure that you are inside the project folder.
 
-Jekyll uses a file titled `_config.yml` to store settings for your site, your theme, and reusable content like your site title and GitHub handle. You can check out the `_config.yml` file on the **Code** tab of your repository.
-
-We need to use a blog-ready theme. For this activity, we will use a theme named "minima".
-
-### :keyboard: Activity: Configure your site
-
-1. Browse to the `_config.yml` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Add a `theme:` set to **minima** so it shows in the `_config.yml` file as below:
-    ```yml
-    theme: minima
-    ```
-1. (optional) You can modify the other configuration variables such as `title:`, `author:`, and `description:` to further customize your site.
-1. Commit your changes.
-1. (optional) Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:my-pages`.
-1. Wait about 20 seconds then refresh this page for the next step.
-
-</details>
-
-<!--
-  <<< Author notes: Step 3 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked the homepage content was not empty.
--->
-
-<details id=3>
-<summary><h2>Step 3: Customize your homepage</h2></summary>
-
-_Nice work setting the theme! :sparkles:_
-
-You can customize your homepage by adding content to either an `index.md` file or the `README.md` file. GitHub Pages first looks for an `index.md` file. Your repository has an `index.md` file so we can update it to include your personalized content.
-
-### :keyboard: Activity: Create your homepage
-
-1. Browse to the `index.md` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Type the content you want on your homepage. You can use Markdown formatting on this page.
-1. (optional) You can also modify `title:` or just ignore it for now. We'll discuss it in the next step.
-1. Commit your changes to the `my-pages` branch.
-1. Wait about 20 seconds then refresh this page for the next step.
-
-</details>
-
-<!--
-  <<< Author notes: Step 4 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked the file path. Previous version checked the front matter formatting.
--->
-
-<details id=4>
-<summary><h2>Step 4: Create a blog post</h2></summary>
-
-_Your home page is looking great! :cowboy_hat_face:_
-
-GitHub Pages uses Jekyll. In Jekyll, we can create a blog by using specially named files and frontmatter. The files must be named `_posts/YYYY-MM-DD-title.md`. You must also include `title` and `date` in your frontmatter.
-
-**What is _frontmatter_?**: The syntax Jekyll files use is called YAML frontmatter. It goes at the top of your file and looks something like this:
-
-```yml
----
-title: "Welcome to my blog"
-date: 2019-01-20
----
+```
+wget https://s3-ap-southeast-1.amazonaws.com/he-public-data/Weed_Detection5a431d7.zip  
+unzip Weed_Detection5a431d7.zip  
+rm Weed_Detection5a431d7.zip  
+mkdir Weed_Detection5a431d7  
+mv classes.txt Weed_Detection5a431d7/  
+mv data/ Weed_Detection5a431d7/
 ```
 
-For more information about configuring front matter, see the [Jekyll frontmatter documentation](https://jekyllrb.com/docs/frontmatter/).
+The additional commands arrange your files into another folder called Weed_Detection5a431d7. Now your files look as follows.
 
-### :keyboard: Activity: Create a blog post
+![](https://miro.medium.com/max/1400/1*rifkOKEezEs6Pv32S-JC7g.png)
 
-1. Browse to the `my-pages` branch.
-1. Click the `Add file` dropdown menu and then on `Create new file`.
-1. Name the file `_posts/YYYY-MM-DD-title.md`.
-1. Replace the `YYYY-MM-DD` with today's date, and change the `title` of your first blog post if you'd like.
-   > If you do edit the title, make sure there are hyphens between your words.
-   > If your blog post date doesn't follow the correct date convention, you'll receive an error and your site won't build. For more information, see "[Page build failed: Invalid post date](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)".
-1. Type the following content at the top of your blog post:
-   ```yaml
-   ---
-   title: "YOUR-TITLE"
-   date: YYYY-MM-DD
-   ---
-   ```
-1. Replace `YOUR-TITLE` with the title for your blog post.
-1. Replace `YYYY-MM-DD` with today's date.
-1. Type a quick draft of your blog post. Remember, you can always edit it later.
-1. Commit your changes to your branch.
-1. Wait about 20 seconds then refresh this page for the next step.
+Weed_Detection5a431d7 is the folder that you download from  [here](https://s3-ap-southeast-1.amazonaws.com/he-public-data/Weed_Detection5a431d7.zip).
 
-</details>
+The data folder contains the images and their labels. If you look at the agri_0_3.txt file, you will notice this:
 
-<!--
-  <<< Author notes: Step 5 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
--->
+![](https://miro.medium.com/max/1132/1*6hIH58_UvFDolppY6Sqq-A.png)
 
-<details id=5>
-<summary><h2>Step 5: Merge your pull request</h2></summary>
+First value is label, followed by x and y coordinates of the center of the identified object and the length and width of the same
 
-_Nice work, friend :heart:! People will be reading your blog in no time!_
+The above implies that the picture agri_0_3.jpeg contains one instance of crop (0).
 
-You can now [merge](https://docs.github.com/en/get-started/quickstart/github-glossary#merge) your pull request!
+![](https://miro.medium.com/max/1024/1*ILBPLQtKugaTz8UHw7Iyag.png)
 
-### :keyboard: Activity: Merge your changes
+agri_0_3.jpeg
 
-1. Merge your changes from `my-pages` into `main`. If you created the pull request in step 2, just open that PR and click on **Merge pull request**. If you did not create the pull request earlier, you can do it now by following the instructions in step 2.
-1. (optional) Delete the branch `my-pages`.
-1. Wait about 20 seconds then refresh this page for the next step.
+![](https://miro.medium.com/max/524/1*oITZyILvFsSHc22bu4ynmQ.png)
 
-</details>
+Applying the co ordinates in the file, we see that the crop is getting highlighted
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+On the other hand, the file agri_0_6.txt looks as follows.
 
-<details id=X>
-<summary><h2>Finish</h2></summary>
+![](https://miro.medium.com/max/1096/1*_wJpFLjbOHWZGiwWXHmNzg.png)
 
-_Congratulations friend, you've completed this course!_
+First value is label, followed by x and y coordinates of the center of the identified object and the length and width of the same
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
+The above implies that the image contains one instance of weed at the mentioned location.
 
-Your blog is now live and has been deployed!
+![](https://miro.medium.com/max/1024/1*ZZgVY0Q43-COAJuDlu10Kw.png)
 
-Here's a recap of all the tasks you've accomplished in your repository:
+agri_0_6.jpeg
 
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first a blog post with Jekyll!
+Using the co ordinates, the weed is highlighted as follows
 
-### What's next?
+![](https://miro.medium.com/max/524/1*PzZcvC3h_LqiiZT6t0UvMA.png)
 
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/skills/.github/discussions).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
+The ambition is to train a model that is capable of separating the weed from the crops. Following tools will be used
 
-</details>
+**Framework**: Pytorch
+**Model**: Yolov5/8
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+## Data Organization
+As we will use yolo as our base model, we need to arrange our files so that the model can process them. This means having a separate folder for images and another one for annotations. These two folders should again contain three folders: train, val, and test. Thus the final folder structure should be as follows.
 
----
+![](https://miro.medium.com/max/1400/1*IgPS_AFINQbu-YqxAJOkpQ.png)
 
-Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+The highlighted part needs to be generated
 
-&copy; 2022 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
+We shall take the files in the data folder and distribute them into images and annotations. The image files in the train folder should be matched by the annotations .txt file in the train folder and so on. Let us write a small code to ensure matching files go into the different folders. Let us create a python file called 01_DistributeImages.py.
+
+![](https://miro.medium.com/max/1116/1*sMZIoSe_G9GiH9CUtVSx3Q.png)
+
+Create the 01_DistributeImages.py file in the root folder of the project
+
+Open the file using vi command and paste the below code.
+```
+vi 01_DistributeImages.py
+```
+```
+import os  
+from sklearn.model_selection import train_test_split  
+import shutil  
+  
+# get all the images and annotation files in two lists  
+images=[]  
+annotations=[]  
+for i in os.listdir("Weed_Detection5a431d7/data/"):  
+    if ".txt" in i:  
+        annotations.append(os.path.join("Weed_Detection5a431d7/data/",i))  
+    elif ".DS_Store" in i:  
+        pass  
+    else:  
+        images.append(os.path.join("Weed_Detection5a431d7/data/",i))  
+          
+# sort the files so that the order of images and annotations are same   
+images.sort()  
+annotations.sort()  
+  
+print("Number of images",len(images),"\nNumber of annotation files",len(annotations))  
+  
+  
+  
+# Split the dataset into train-valid-test splits   
+train_images, val_images, train_annotations, val_annotations = train_test_split(images, annotations,   
+                                                                                test_size = 0.2, random_state = 1)  
+val_images, test_images, val_annotations, test_annotations = train_test_split(val_images, val_annotations,   
+                                                                              test_size = 0.5, random_state = 1)  
+  
+print("Training:",len(train_images),";Validation: ",len(val_images),";Test:",len(test_images))  
+  
+# create additional folders  
+  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data")  
+      
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/images"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/images")  
+  
+      
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/labels"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/labels")  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/images/train"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/images/train")  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/images/val"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/images/val")  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/images/test"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/images/test")  
+      
+      
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/labels/train"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/labels/train")  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/labels/val"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/labels/val")  
+  
+if not os.path.isdir("Weed_Detection5a431d7/assorted_data/labels/test"):  
+    os.mkdir("Weed_Detection5a431d7/assorted_data/labels/test")          
+  
+      
+#Utility function to move images   
+def move_files_to_folder(list_of_files, destination_folder):  
+    for f in list_of_files:  
+#         print(f,destination_folder)  
+        try:  
+            shutil.copy(f, destination_folder)  
+        except e:  
+            print(e)  
+            pass  
+            # print(f,"Already there")  
+            # assert False  
+  
+# Move the splits into their folders  
+
+move_files_to_folder(train_images, 'Weed_Detection5a431d7/assorted_data/images/train/')  
+move_files_to_folder(val_images, 'Weed_Detection5a431d7/assorted_data/images/val/')  
+move_files_to_folder(test_images, 'Weed_Detection5a431d7/assorted_data/images/test/')  
+move_files_to_folder(train_annotations, 'Weed_Detection5a431d7/assorted_data/labels/train/')  
+move_files_to_folder(val_annotations, 'Weed_Detection5a431d7/assorted_data/labels/val/')  
+move_files_to_folder(test_annotations, 'Weed_Detection5a431d7/assorted_data/labels/test/') 
+```
+
+Run the code as follows
+```
+python 01_DistributeImages.py 
+```
+![](https://miro.medium.com/max/1400/1*5N5eZq0L3jmgeIPo5nzEKg.png)
+
+After moving the files
+
+The first part of the code splits the file names into three lists (train, val, test), each for images and annotations. We ensure that the same files are present for images and annotations in each group. Then we create the test, train, and val folders. Finally, we copy the images from the data folder into the assorted_data folder.
+
+Let us now check if the number of files in train, validation and test are consistent.
+```
+vi 01a_CountImages.py
+```
+```
+import os  
+  
+print("Number of train images = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/images/train/")))  
+print("Number of train annotations = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/labels/train/")))  
+  
+print("Number of val images = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/images/val/")))  
+print("Number of val annotations = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/labels/val/")))  
+  
+print("Number of test images = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/images/test/")))  
+print("Number of test annotations = ",len(os.listdir("Weed_Detection5a431d7/assorted_data/labels/test/")))
+
+python 01a_CountImages.py
+```
+![](https://miro.medium.com/max/1292/1*HZCmoKzQBnuPtb9P0tSsyQ.png)
+
+Number of files in the different folders
+
+## End of data pre-processing
+
+Believe me, the hard part is over. Now it is just about loading the yolov5 and training it on this data. If you have come this far, the rest is easy.
+
+# 03 Training
+
+## Get yolov5
+
+We download the code repository of yolov5 from github in order to take advantage of the already existing codebase. Some commands need to be run from the terminal to download yolov5.
+```
+qsub -i  
+source /opt/intel/inteloneapi/setvars.sh  > /dev/null 2>&1  
+source activate pytorch  
+cd project  
+git clone https://github.com/ultralytics/yolov5  
+pip install --user -r yolov5/requirements.txt
+```
+We first start the interactive mode to make use of the GPU. Then we activate the pytorch virtual environment. Next we download the github repository of yolov5 and install the necessary libraries. Note that we can only install different packages from the requirements.txt file if we are in the interactive mode.
+
+![](https://miro.medium.com/max/1180/1*deEvPsl4aWhLzI1od6Vu1w.png)
+
+A new folder called yolov5 will be created
+
+## The YAML file
+
+We need to create a YAML file that contains the particulars of training. The training, validation, and test folders must be mentioned in this file. The final YAML file looks like this, although we will create it programmatically.
+```
+train: /home/u178709/CropVWeedProject/Weed_Detection5a431d7/assorted_data/images/train  
+val: /home/u178709/CropVWeedProject/Weed_Detection5a431d7/assorted_data/images/val  
+test: /home/u178709/CropVWeedProject/Weed_Detection5a431d7/assorted_data/images/test  
+nc: 2  
+names: ['crop',  
+        'weed',         
+]
+```
+Above shows the YAML file containing particulars of train, test, validation, number of classes and names of classes
+
+It is necessary to give the absolute path to the train, validation, and test folder. This is an important note. In order to reduce the confusion, we will develop the file using code. Create another python file 02CreateYAML.py
+```
+vi 02CreateYAML.py
+```
+Paste the following code snippet into the python file
+```
+import os  
+from pathlib import Path  
+path = Path(os.getcwd())  
+final_data_path=os.path.join(path,"Weed_Detection5a431d7","assorted_data")  
+print(final_data_path)  
+  
+yaml_data="train: "+final_data_path+"/images/train\n"  
+yaml_data+="val: "+final_data_path+"/images/val\n"  
+yaml_data+="test: "+final_data_path+"/images/test\n"  
+  
+rest_of_yaml_data='''nc: 2  
+names: ['crop',  
+        'weed',         
+]'''  
+  
+yaml_data=yaml_data+rest_of_yaml_data  
+print(yaml_data)  
+  
+yaml_file = open("dataDiff.yaml", "w")  
+n = yaml_file.write(yaml_data)  
+yaml_file.close()
+```
+The first part of the code gets the path to the training, validation and test files. The code results in creating a file called dataDiff.YAML at the root of the project.
+
+![](https://miro.medium.com/max/1084/1*pNmHpgo8sdsW3vlzDDcKdw.png)
+
+Creating the metadata for training
+
+Next, we will run the code to perform training. The code to train is already written in yolov5/train.py. What we need to do is execute the code with the correct parameters. In Intel devcloud we need to do this by submitting a job to the system. That is done by creating a bash script containing the python command to train the model. This bash script is then added to the queue for execution.
+
+Create a .sh file to contain the python command.
+```
+vi train_yolov5.sh
+```
+Paste the following lines into the .sh file
+```
+source /opt/intel/inteloneapi/setvars.sh  > /dev/null 2>&1  
+source activate pytorch  
+python yolov5/train.py --data dataDiff.yaml --cfg yolov5n.yaml --batch-size 32 --epochs 5 --name TrainModel
+```
+The first two lines are for the environment. An important parameter in the third line is —  _data_  where we give the name of the YAML file just created. Another necessary parameter is —  _epochs_  which are just 1 in the above example, but it should be changed to 20 or more to get better accuracy. Finally the parameter —  _name_  is important as it declares where the final trained model is going to be stored. For example, in this case, the trained model will be stored in the folder TrainModel  inside the run directory of the yolov5 folder. Also important is the cfg parameter, where we give the name of the model to be trained. The image below gives the different yolov5* versions. However we use a different one,  **yolov5n**  which is even smaller than yolov5s.
+
+![](https://miro.medium.com/max/1400/1*bOc4rZ_gfO17PzF5l6hXGw.png)
+
+Different sizes of YOLOv5 models
+
+Now we can submit the training job. However you might face an error:
+```
+import pandas._libs.window.aggregations as window_aggregations   
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version   
+`GLIBCXX_3.4.29' not found 
+```
+This is specific to the intel oneapi platform and can be resolved by adding the following line to the bash file running the training command. Modify the train_yolov5.sh file as follows:
+```
+source /opt/intel/inteloneapi/setvars.sh  
+source activate pytorch  
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/glob/development-tools/versions/oneapi/2023.0/oneapi/intelpython/latest/envs/pytorch/lib/  
+python yolov5/train.py --data dataDiff.yaml --cfg yolov5n.yaml --batch-size 32 --epochs 5 --name TrainModel
+```
+The third line takes care of the library not found error.
+
+We can now submit the job with the following command.
+```
+qsub -l nodes=1:gpu:ppn=2 -d . train_yolov5.sh 
+```
+
+Once the job is submitted, you can check the status with the below command.
+
+```
+watch -n 1 qstat -n -1
+```
+
+The progress can be seen as below:
+
+![](https://miro.medium.com/max/1400/1*ZKHImLvyvpMxmpr0xcySkQ.png)
+
+You can also find the training files inside the yolov5 folder. Go to yolov5/runs/train/TrainModel folder. You can see the intermediate efficacy of the model as and while it s being trained.
+
+![](https://miro.medium.com/max/1400/1*0hiPTFh6asSVXYelRuZL_g.jpeg)
+
+Model classification on validation images
+
+You will know that your training is complete when qstat doesnt show any train_yolov5.sh any more. Also the yolov5/runs/train/TrainModel will have lot of files with validation results.
+
+For example, below is the result on some validation images.
+
+![](https://miro.medium.com/max/1378/1*ylEQ2Kto3-sS1JU2cC_HoQ.png)
+
+Detecting weed and crop in validation images
+
+![](https://miro.medium.com/max/1400/1*IFYwa2pCk3F1gNE7bVMPFQ.png)
+
+Confusion matrix created after training
+
+# 04 Test model
+
+Once the model is trained satisfactorily, we want to test its performance. We create a folder called test_data and put some images in it for testing.
+
+![](https://miro.medium.com/max/972/1*6X_aaj3qM7OiywCW1gPMJg.png)
+
+Files and folders for testing
+
+Notice how we have created a new file called test_yolov5.sh which will contain the commands to run the trained yolov5 model on the images present in the test_data folder. We transfer a couple of images into the test_data folder. Following is the content of the test_yolov5.sh file:
+```
+source /opt/intel/inteloneapi/setvars.sh  
+source activate pytorch  
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/glob/development-tools/versions/oneapi/2023.0/oneapi/intelpython/latest/envs/pytorch/lib/  
+python yolov5/detect.py --source test_data/ --weights yolov5/runs/train/TrainModel/weights/best.pt --conf 0.25 --name TestModel
+```
+Note that this also has to be submitted as a job. The command for the same is as follows:
+```
+qsub -l nodes=1:gpu:ppn=2 -d . test_yolov5.sh
+```
+The output of the test will be stored in yolov5/runs/detect in a folder called TestModel.
+
+![](https://miro.medium.com/max/500/1*fzHUMBcoUPt5o7rnmhJLdw.png)
+
+# 05 Bonus — Streamlit App
+
+Wouldn’t it be great if we could use this app in the web. We could just upload image of a crop and it gives the areas where weed is present. We can do exactly that using streamlit.
+
+![](https://miro.medium.com/max/1200/1*bkMoiV4ErVFkZ355Ay9CfA.gif)
+
+For a more detailed explanation of coding in streamlit, take a look at this  [article](https://pub.towardsai.net/deep-learning-a692669f6f42), and go to the section  _Hosting As a Streamlit Application (Locally and then in the cloud)._ The code follows a similar pattern and can be found in  [github](https://github.com/ashhadulislam/medium_weedVcrop-main)  and the running app can be found  [here](https://ashhadulislam-medium-weedvcrop-main-main-ppo37r.streamlit.app/).
+
+First we have shown how a single image can be processed by different yolo models and the corresponding results as shown in the gif below.
+
+![](https://miro.medium.com/max/1200/1*YJFfygi_4JR5fDdKNIhoEQ.gif)
+
+Single image processed by different yolov8 models
+
+However, you might need to upload a set of images and apply the models on them. In that case, it would be tedious to drag and drop every image one by one. Rather, we have another page in the same application where you can drag and drop a zip file containing multiple images.
+
+![](https://miro.medium.com/max/1200/1*0BDHmo-iISYYQWNHTa9qfg.gif)
+
+Processing zipped files
+
+You can even choose the from a list of models (yolov8 — nano, small, medium and large). You will get a zipped file containing folders corresponding to each model with a set of result in each.
