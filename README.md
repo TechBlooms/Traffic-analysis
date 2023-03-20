@@ -29,9 +29,13 @@ Openvino was used in this project which helped in optimization of the computer v
 How to run,
 •	Create a virtual environment and activate it
 •	Download the packages using the command,
+``` bash
 pip install -r requirements.txt
+```
 •	In a terminal, run mainProgram.py
+``` bash
 python mainProgram.py
+```
 
 [Uploading OPENVINO_ENV.png…]()
 •	In another terminal, run the frontend using the command,
