@@ -5,13 +5,22 @@
                                        <img src="https://user-images.githubusercontent.com/118420309/226430850-7a4f9bf3-0e46-4993-82c0-ce4ad6476e75.png" width=400 height =300 > 
   </p>
 
+# Table of contents
+- [Motivation](#mot)
+- [Setup](#set)
+- [Motivation](#mot)
+- [Motivation](#mot)
+- [Motivation](#mot)
+- [Motivation](#mot)
+- [Motivation](#mot)
 
 
-# 01 Motivation
+
+# 01 Motivation <a name = "mot"></a>
  
 Knowing that traffic officers won’t have the view of the whole traffic, this project has a web-based dashboard to assist traffic officers in making decisions depending on the volume of traffic only by visualizing the count of vehicles from each lane. This would serve as a hybrid way of traffic support to the cop instead of fully automating traffic control.In this project we have also implemented the algorithm using Intel oneAPI Toolkit.
 
-# 02 Setup
+# 02 Setup <a name = "set"></a>
 We have used intelOneApi devcloud,
 
 
