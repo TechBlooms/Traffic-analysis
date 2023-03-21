@@ -15,7 +15,7 @@
 - [Web dashboard](#web)
 - [Overview of the project](#overview)
 
-Image Recognition: Develop a computer vision project using Scikit-Learn's image processing capabilities. You could use a dataset of images to train a model to recognize specific objects or classify images into categories.
+
 
 
 # 01 Motivation <a name = "mot"></a>
