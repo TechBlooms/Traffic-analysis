@@ -123,8 +123,8 @@ Final view of the Traffic shown in the web dashboard.
 
 # 07 Overview of the project <a name = "overview"></a>
  
- Video [**Link**](https://youtu.be/-uzCXNjXNBQ)
+ Explanation & implementation of the project : [**Link**](https://youtu.be/-uzCXNjXNBQ)
  
- Drive [**Link**](https://drive.google.com/drive/folders/1wCd9z_YpQytijO36T0_t2LJWqR4Lclt-?usp=sharing)
+ Source code: [**Link**](https://drive.google.com/drive/folders/1wCd9z_YpQytijO36T0_t2LJWqR4Lclt-?usp=sharing)
 
 
