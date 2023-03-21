@@ -21,7 +21,7 @@
 Knowing that traffic officers won’t have the view of the whole traffic, this project has a web-based dashboard to assist traffic officers in making decisions depending on the volume of traffic only by visualizing the count of vehicles from each lane. This would serve as a hybrid way of traffic support to the cop instead of fully automating traffic control.In this project we have also implemented the algorithm using Intel oneAPI Toolkit.
 
 # 02 Setup <a name = "set"></a>
-We have used intelOneApi devcloud,
+We have used IntelOneApi Toolkit to make the system run in any environment and it extends the code portability across all processor architectures. Hence, in our model, the usage of oneAPI served to be helpful in terms of optimization.
 
 
 # 03 Implementation - Algorithm <a name = "alg"></a>
