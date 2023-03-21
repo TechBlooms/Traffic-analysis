@@ -24,6 +24,8 @@ Knowing that traffic officers won’t have the view of the whole traffic, this p
 
 # 02 Problem Statement <a name = "ps"></a>
 
+Image Recognition: Develop a computer vision project using Scikit-Learn's image processing capabilities. You could use a dataset of images to train a model to recognize specific objects or classify images into categories.
+
 # 03 Setup <a name = "set"></a>
 We have used IntelOneApi Toolkit to make the system run in any environment and it extends the code portability across all processor architectures. Hence, in our model, the usage of oneAPI served to be helpful in terms of optimization.
 
