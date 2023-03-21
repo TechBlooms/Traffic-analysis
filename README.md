@@ -1,4 +1,4 @@
-# AI based Decision support system for Traffic Control
+#  AI based Decision support system for Traffic Control
 
  **AI based Decision support system for Traffic Control** is an helpful tool for traffic cops to analyze the traffic using ML and IoT.
  <p align="center">
